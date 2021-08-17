@@ -12,14 +12,15 @@
             tools:layout="@layout/fragment_home"/>
 
     <fragment
-            android:id="@+id/navigation_dashboard"
-            android:name="com.example.morsecodeapp.ui.dashboard.DashboardFragment"
-            android:label="@string/title_dashboard"
-            tools:layout="@layout/fragment_dashboard"/>
+            android:id="@+id/navigation_morse"
+            android:name="com.example.morsecodeapp.ui.morse.MorseFragment"
+            android:label="@string/title_morse"
+            tools:layout="@layout/fragment_morse"/>
 
     <fragment
-            android:id="@+id/navigation_notifications"
-            android:name="com.example.morsecodeapp.ui.notifications.NotificationsFragment"
-            android:label="@string/title_notifications"
-            tools:layout="@layout/fragment_notifications"/>
+        android:id="@+id/navigation_english"
+        android:name="com.example.morsecodeapp.ui.english.EnglishFragment"
+        android:label="@string/title_english"
+        tools:layout="@layout/fragment_english"/>
+
 </navigation>
