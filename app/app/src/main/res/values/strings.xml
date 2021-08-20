@@ -3,4 +3,6 @@
     <string name="title_home">Home</string>
     <string name="title_morse">Morse Translator</string>
     <string name="title_english">English Translator</string>
+    <string name="morse_push">PUSH</string>
+    <string name="morse_msg_hint">Morse Code Appears Here</string>
 </resources>

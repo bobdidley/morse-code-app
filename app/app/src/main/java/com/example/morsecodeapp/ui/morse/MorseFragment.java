@@ -1,5 +1,9 @@
 package com.example.morsecodeapp.ui.morse;
 
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -17,6 +21,11 @@ public class MorseFragment extends Fragment {
     private MorseViewModel morseViewModel;
     private FragmentMorseBinding binding;
 
+    TextView txtMorseTranslate;
+    TextView txtMorseMsg;
+    Button btnMorsePush;
+    String message;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         morseViewModel =
@@ -25,14 +34,73 @@ public class MorseFragment extends Fragment {
         binding = FragmentMorseBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textMorse;
+        txtMorseMsg = binding.txtMorseMsg;
+        txtMorseTranslate = binding.txtMorseTranslate;
+        btnMorsePush = binding.btnMorsePush;
+        message = "";
+
+        // TODO: use some timing mechanism to add a space to the message
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                int t = 0;
+//                while((t++ * 1000) % 3000 == 0) {
+//                    message += " ";
+//                }
+//            }
+//        });
+
         morseViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                txtMorseTranslate.setText(s);
             }
         });
+
+        btnMorsePush.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                message += ".";
+                txtMorseMsg.setText(message);
+            }
+        });
+
+        btnMorsePush.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                message += "-";
+                txtMorseMsg.setText(message);
+                return true;
+            }
+        });
+
+        txtMorseMsg.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // debug
+//                Log.i("MSG: ", message);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // TODO: implement morse code library for matching and split message string by spaces
+                if(message.contentEquals("..."))
+                    txtMorseTranslate.setText("hello");
+//                else
+//                    txtMorseTranslate.setText("");
+            }
+        });
+
         return root;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override
