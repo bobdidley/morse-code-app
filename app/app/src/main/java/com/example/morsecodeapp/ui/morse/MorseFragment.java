@@ -4,6 +4,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -21,6 +22,7 @@ public class MorseFragment extends Fragment {
     private MorseViewModel morseViewModel;
     private FragmentMorseBinding binding;
 
+    ScrollView scrollMorseMsg;
     TextView txtMorseTranslate;
     TextView txtMorseMsg;
     Button btnMorsePush;
@@ -34,10 +36,17 @@ public class MorseFragment extends Fragment {
         binding = FragmentMorseBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        scrollMorseMsg = binding.scrollMorseMsg;
         txtMorseMsg = binding.txtMorseMsg;
         txtMorseTranslate = binding.txtMorseTranslate;
         btnMorsePush = binding.btnMorsePush;
         message = "";
+
+//        scrollMorseMsg.post(new Runnable() {
+//            public void run() {
+//                scrollMorseMsg.fullScroll(View.FOCUS_DOWN);
+//            }
+//        });
 
         // TODO: use some timing mechanism to add a space to the message
 //        new Thread(new Runnable() {
@@ -62,6 +71,16 @@ public class MorseFragment extends Fragment {
             public void onClick(View v) {
                 message += ".";
                 txtMorseMsg.setText(message);
+                // NOTE: scrolls once
+//                if(!txtMorseMsg.isFocused()) {
+//                    scrollMorseMsg.fullScroll(View.FOCUS_DOWN);
+//                }
+                // NOTE: continues to scroll until at bottom of text view
+                txtMorseMsg.post(new Runnable() {
+                    public void run() {
+                        scrollMorseMsg.fullScroll(View.FOCUS_DOWN);
+                    }
+                });
             }
         });
 
@@ -70,6 +89,11 @@ public class MorseFragment extends Fragment {
             public boolean onLongClick(View v) {
                 message += "-";
                 txtMorseMsg.setText(message);
+                txtMorseMsg.post(new Runnable() {
+                    public void run() {
+                        scrollMorseMsg.fullScroll(View.FOCUS_DOWN);
+                    }
+                });
                 return true;
             }
         });

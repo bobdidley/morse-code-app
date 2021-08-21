@@ -5,4 +5,7 @@
     <string name="title_english">English Translator</string>
     <string name="morse_push">PUSH</string>
     <string name="morse_msg_hint">Morse Code Appears Here</string>
+    <string name="morse_delete">DELETE</string>
+    <string name="morse_enter">ENTER</string>
+    <string name="morse_translate_hint">English Translation Appears Here</string>
 </resources>
