@@ -90,29 +90,29 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0.1" />
 
-<!--    <LinearLayout-->
-<!--            android:id="@+id/btnLinearLayout"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/btnMorsePush"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintVertical_bias="0.1">-->
+    <LinearLayout
+            android:id="@+id/btnLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/btnMorsePush"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.1">
 
-<!--        <Button-->
-<!--                android:id="@+id/btnMorseDelete"-->
-<!--                android:text="@string/morse_delete"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginEnd="8dp"/>-->
-    
-<!--        <Button-->
-<!--                android:id="@+id/btnMorseEnter"-->
-<!--                android:text="@string/morse_enter"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="8dp"/>-->
-<!--    </LinearLayout>-->
+        <Button
+                android:id="@+id/btnMorseDelete"
+                android:text="@string/morse_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"/>
+
+        <Button
+                android:id="@+id/btnMorseEnter"
+                android:text="@string/morse_enter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
